@@ -64,7 +64,7 @@ class Maintenance extends Rest_Controller {
         // PUT to "/maintenance" with the id passed in the payload, or a PUT to "/maintenance?id=123"
         function index_put()
         {
-            $key = $this->get('id');
+            $key = $this->put('id');
             $record = array_merge(array('id' => $key), $this->_put_args);
             $this->menu->update($record);
             $this->response(array('ok'), 200);
@@ -72,7 +72,7 @@ class Maintenance extends Rest_Controller {
         
         function item_put()
         {
-            $key = $this->get('id');
+            $key = $this->put('id');
             $record = array_merge(array('id' => $key), $this->_put_args);
             $this->menu->update($record);
             $this->response(array('ok'), 200);
