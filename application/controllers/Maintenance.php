@@ -10,10 +10,21 @@ class Maintenance extends Rest_Controller {
 		$this->load->model('Menu');
 	}
 
-	// Handle an incoming GET ... 	returns a list of menu items
-	function index_get()
-	{
-	
-	}
+	// Handle an incoming GET ... return a menu item or all of them
+        function index_get()
+        {
+            $key = $this->get('code');
+            if (!$key)
+            {
+                $this->response($this->menu->all(), 200);
+            } else
+            {   
+                $result = $this->menu->get($key);
+                if ($result != null)
+                    $this->response($result, 200);
+                else
+                    $this->response(array('error' => 'Menu item not found!'), 404);
+            }
+        }
 }
 
