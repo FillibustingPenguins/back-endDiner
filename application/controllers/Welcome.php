@@ -8,7 +8,7 @@ class Welcome extends Application {
 	{
 		$this->load->helper('formfields');
 		$this->data['title'] = 'Diner (Server)';
-		$this->data['pagebody'] = 'Welcome to the Diner server!';
+		$this->data['pagebody'] = "welcome_message";
 		$this->render();
 	}
 
